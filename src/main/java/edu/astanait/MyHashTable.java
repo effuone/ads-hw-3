@@ -2,7 +2,7 @@ package edu.astanait;
 
 public class MyHashTable<K, V> {
 
-    private class HashNode<K, V> {g
+    private class HashNode<K, V> {
         private final K key;
         private final V value;
         private HashNode<K, V> next;

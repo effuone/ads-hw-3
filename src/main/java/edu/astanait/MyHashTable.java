@@ -10,6 +10,7 @@ public class MyHashTable<K, V> {
         public HashNode(K key, V value) {
             this.key = key;
             this.value = value;
+            this.next = null;
         }
 
         @Override
@@ -18,7 +19,7 @@ public class MyHashTable<K, V> {
         }
     }
 
-    private final HashNode<K, V>[] chainArray;
+    private HashNode<K, V>[] chainArray;
     private int M = 11; // default number of chains
     private int size;
 
@@ -118,4 +119,19 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
+
+    public int[] getBucketSizes() {
+        int[] bucketSizes = new int[M];
+        for (int i = 0; i < M; i++) {
+            int count = 0;
+            HashNode<K, V> current = chainArray[i];
+            while (current != null) {
+                count++;
+                current = current.next;
+            }
+            bucketSizes[i] = count;
+        }
+        return bucketSizes;
+    }
 }
+

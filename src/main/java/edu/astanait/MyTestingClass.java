@@ -1,6 +1,6 @@
 package edu.astanait;
 public class MyTestingClass {
-    private final int id;
+    private int id;
 
     public MyTestingClass(int id) {
         this.id = id;
@@ -8,8 +8,7 @@ public class MyTestingClass {
 
     @Override
     public int hashCode() {
-        // Custom hash code function for uniform distribution
-        return Integer.hashCode(id);
+        return id;
     }
 
     @Override
@@ -25,4 +24,5 @@ public class MyTestingClass {
         return "ID: " + id;
     }
 }
+
 
